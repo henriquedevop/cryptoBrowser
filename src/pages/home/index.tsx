@@ -2,7 +2,7 @@ import { Link } from "react-router";
 import { useEffect, useState } from "react";
 import api from "../../services/api";
 
-interface CryptoProps {
+export interface CryptoProps {
   changePercent24Hr: string,
   explorer: string,
   id: string,
@@ -23,15 +23,25 @@ interface CryptoProps {
 export function Home() {
 
   const [cryptos, setCryptos] = useState<CryptoProps[]>([])
+  const [offSet, setOffSet] = useState(0)
 
   useEffect(() => {
     getData()
-  },[])
+  },[offSet])
+
+  function handleGetMore() {
+    if(offSet === 0) {
+      setOffSet(10)
+      return
+    }
+
+    setOffSet(offSet + 10)
+  }
 
   async function getData() {
     try {
       
-      const response = await api.get("assets", {params: { limit: 10, offset: 0 }});
+      const response = await api.get("assets", {params: { limit: 10, offset: offSet }});
 
       const cryptoData = response.data.data
       
@@ -53,7 +63,8 @@ export function Home() {
         formatedValue: priceCompacter.format(Number(item.volumeUsd24Hr)),
       }))
 
-      setCryptos(formatedResult);
+      const listCoins = [...cryptos, ...formatedResult]
+      setCryptos(listCoins);
     } catch (error) {
       console.error("Erro ao buscar dados:", error);
     }
@@ -100,7 +111,7 @@ export function Home() {
         </tbody>
         
       </table>
-      <button className="bg-green-500 rounded-md p-1 text-white font-bold mt-3">Buscar mais...</button>
+      <button onClick={handleGetMore} className="bg-green-500 rounded-md p-1 text-white font-bold mt-3">Buscar mais...</button>
     </main>
   );
 }
