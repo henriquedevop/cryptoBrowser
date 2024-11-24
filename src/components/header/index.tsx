@@ -18,10 +18,10 @@ export function Header() {
 
     return (
         <header className={`h-8 w-full border-b-[1.5px] flex justify-between items-center px-5 py-10  ${isMenuOpen ? 'h-screen flex-col' : ''}`}>
-                <div className="flex-1">
+                <div className="md:flex-1">
                     <Link to="/" className="text-xl"><h3><strong>Crypto</strong>Browser</h3></Link>
                 </div>
-                <div className={`flex-1 ${isMenuOpen ? 'hidden' : ''}`}>
+                <div className={`md:flex-1 ${isMenuOpen ? 'hidden' : ''}`}>
                 <Search/>
                 </div>
                 <div className="md:hidden">

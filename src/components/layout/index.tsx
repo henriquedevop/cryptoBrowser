@@ -1,4 +1,5 @@
 import { Header } from "../header"
+import { Footer } from "../footer"
 import { Outlet } from "react-router"
 
 export function Layout() {
@@ -6,6 +7,7 @@ export function Layout() {
         <>
             <Header/>
             <Outlet/>
+            <Footer/>
         </>
     )
 }

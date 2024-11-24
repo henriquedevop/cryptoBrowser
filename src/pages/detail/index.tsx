@@ -3,7 +3,7 @@ import api from "../../services/api"
 import { CryptoProps } from "../home"
 import { useNavigate } from "react-router"
 import { useParams } from "react-router"
-import { ArrowPathIcon } from "@heroicons/react/16/solid"
+import { Loading } from "../../components/loading"
 
 export function Detail() {
 
@@ -41,7 +41,6 @@ export function Detail() {
         formatedMarket: priceCompacter.format(Number(data.marketCapUsd)),
         formatedValue: priceCompacter.format(Number(data.volumeUsd24Hr)),
       })
-
       setLoading(false)
 
     } catch (err) {
@@ -55,11 +54,7 @@ export function Detail() {
     }
 
     if(loading) {
-      return (
-        <div className="h-screen flex items-center justify-center">
-          <ArrowPathIcon className="size-11 text-gray-500 animate-spin"/>
-        </div>
-      )
+      return <Loading message={`Carregando informações sobre ${crypto}`}/>
     }
 
     return (

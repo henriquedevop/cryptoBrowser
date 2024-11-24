@@ -22,7 +22,7 @@ export function Search() {
         <input
           type="text"
           placeholder="Search"
-          className="md:w-64 md:focus:w-80 bg-gray-100 rounded-md pl-10 pr-3 py-1 w-28 transition-all duration-300 ease-in-out focus:w-48 focus:pl-12"
+          className="md:w-64 md:focus:w-80 bg-gray-200 rounded-md pl-10 pr-3 py-1 w-28 transition-all duration-300 ease-in-out focus:w-40 focus:pl-12"
           value={input}
           onChange={ (e) => setInput(e.target.value) }
         />

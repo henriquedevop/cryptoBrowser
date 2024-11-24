@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import { useEffect, useState } from "react";
 import api from "../../services/api";
+import { Loading } from "../../components/loading";
 
 export interface CryptoProps {
   changePercent24Hr: string,
@@ -24,6 +25,7 @@ export function Home() {
 
   const [cryptos, setCryptos] = useState<CryptoProps[]>([])
   const [offSet, setOffSet] = useState(0)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     getData()
@@ -65,9 +67,14 @@ export function Home() {
 
       const listCoins = [...cryptos, ...formatedResult]
       setCryptos(listCoins);
+      setLoading(false)
     } catch (error) {
       console.error("Erro ao buscar dados:", error);
     }
+  }
+
+  if(loading) {
+    return <Loading message="Carregando home page"/>
   }
 
   return (
