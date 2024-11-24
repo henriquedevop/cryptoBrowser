@@ -17,7 +17,7 @@ export function Header() {
     }
 
     return (
-        <header className={`h-8 w-full border-b-[1.5px] flex justify-between items-center px-5 py-10 ${isMenuOpen ? 'h-screen flex-col' : ''}`}>
+        <header className={`h-8 w-full border-b-[1.5px] flex justify-between items-center px-5 py-10  ${isMenuOpen ? 'h-screen flex-col' : ''}`}>
                 <div>
                     <Link to="/" className="text-xl"><h3><strong>Crypto</strong>Browser</h3></Link>
                 </div>
@@ -33,8 +33,8 @@ export function Header() {
                     </button>
                 </div>
 
-            <nav className={`md:flex-row md:flex md:bg-white  flex-col gap-10 bg-slate-100 p-5 rounded-lg  ${isMenuOpen ? 'flex flex-1 self-end w-full' : 'hidden'}`}>
-                <a href="#" className="md:text-base md:font-medium md:border-none font-bold text-xl border-b-2 flex items-center gap-3" > <HomeIcon className="size-6 text-slate-500"/> Home</a>
+            <nav className={`md:flex-row md:flex md:bg-white  flex-col gap-10 bg-slate-100 p-5 rounded-lg ${isMenuOpen ? 'flex flex-1 self-end w-full' : 'hidden'}`}>
+                <Link className="md:text-base md:font-medium md:border-none flex font-bold text-xl items-center border-b-2 gap-3" to="/"> <HomeIcon className="size-6 text-slate-500"/> Home</Link>
                 <a href="#" className="md:text-base md:font-medium md:border-none flex font-bold text-xl items-center border-b-2 gap-3"> <StarIcon className="size-6 text-slate-500"/> Favoritas</a>
                 <button onClick={toggleTheme} className="md:text-base md:font-medium md:border-none flex font-bold text-xl items-center border-b-2 gap-3"> <MoonIcon className={`size-6 duration-200 ${isThemeOn ? 'text-white' : 'text-slate-500'}`}/>  Dark theme</button>
             </nav>
