@@ -85,3 +85,11 @@ body.dark section div button {
 body.dark section div a {
     background-color: #2d3246;
 }
+
+body.dark section div div ul li div a {
+    color: #d8d8d8;
+}
+
+body.dark section div div ul li div button {
+    color: #d8d8d8;
+}

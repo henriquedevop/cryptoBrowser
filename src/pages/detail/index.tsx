@@ -4,6 +4,7 @@ import { CryptoProps } from "../home"
 import { useNavigate } from "react-router"
 import { useParams } from "react-router"
 import { Loading } from "../../components/loading"
+import { toast } from "react-toastify"
 
 export function Detail() {
 
@@ -63,7 +64,7 @@ export function Detail() {
 
       const isAlreadyFavorite = favorites.some((item: {id: string}) => item.id === id)
       if(isAlreadyFavorite) {
-        alert("essa moeda ja esta na sua lista")
+        toast.warning("Essa moeda já esta na sua lista")
         return
       }
 
@@ -71,9 +72,9 @@ export function Detail() {
       favorites.push(newFavorite)
 
       localStorage.setItem("cryptoFavorites", JSON.stringify(favorites));
-      alert(`moeda ${name} adiciona ao favoritos`)
+      toast.success(`${name} foi adiciona a sua lista`)
     } catch(error) {
-      alert(`error ao adicionar moeda`)
+      toast.error("Opss, algo deu errado")
     }
 
   }
@@ -126,7 +127,9 @@ export function Detail() {
           </div>
         </div>
         <div className="text-center mt-3">
-          <button onClick={() => handleAddFav(cryptoInfo?.id, cryptoInfo?.name)} className="bg-green-500 text-white font-bold p-3 rounded-md">Adicionar as favoritas</button>
+          <button onClick={() => handleAddFav(cryptoInfo?.id, cryptoInfo?.name)} 
+          className="bg-green-500 text-white font-bold p-3 rounded-md">
+          Adicionar as favoritas</button>
         </div>
       </section>
       </>

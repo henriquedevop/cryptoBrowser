@@ -40,10 +40,10 @@ export function Favorites() {
                             <Link className="font-medium text-lg" to={`/detail/${item.id}`}>{item.name}</Link>
                             <div className="flex gap-2">
                             <Link 
-                            className="text-base bg-blue-500 text-white rounded-md px-1 py-2 flex items-center"
-                            to={`/detail/${item.id}`}> <LinkIcon className="size-4"/> Acessar</Link>
+                            className="text-base text-black rounded-md px-1 py-2 flex items-center"
+                            to={`/detail/${item.id}`}> <LinkIcon className="size-5"/> Acessar</Link>
                             <button onClick={() => removeFavorite(item.id)} 
-                            className="text-base bg-red-400 text-white rounded-md p-1 flex items-center gap-1"
+                            className="text-base text-black rounded-md p-1 flex items-center gap-1"
                             > <TrashIcon className="size-4"/> Remover</button>
                             </div>
                         </li>
