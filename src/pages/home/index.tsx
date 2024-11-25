@@ -19,6 +19,7 @@ export interface CryptoProps {
   formatedPrice?: string,
   formatedMarket?: string,
   formatedValue?: string,
+  formattedSupply?: string,
 }
 
 export function Home() {

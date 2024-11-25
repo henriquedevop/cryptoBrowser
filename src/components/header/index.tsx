@@ -1,5 +1,5 @@
-import { StarIcon, Bars3Icon, XMarkIcon, HomeIcon, MoonIcon } from "@heroicons/react/16/solid"
-import { useState } from "react"
+import { StarIcon, Bars3Icon, XMarkIcon, HomeIcon, MoonIcon, SunIcon } from "@heroicons/react/16/solid"
+import { useEffect, useState } from "react"
 import { Link } from "react-router"
 import { Search } from "../search"
 
@@ -12,8 +12,23 @@ export function Header() {
         setIsMenuOpen(!isMenuOpen)
     }
 
+    useEffect(() => {
+        const savedTheme = localStorage.getItem('theme')
+        if(savedTheme === 'dark') {
+            setIsthemeOn(true)
+            document.body.classList.add('dark')
+        }
+    },[])
+
     function toggleTheme() {
         setIsthemeOn(!isThemeOn)
+        if(isThemeOn) {
+            document.body.classList.remove('dark')
+            localStorage.setItem('theme', 'light')
+        } else {
+            document.body.classList.add('dark')
+            localStorage.setItem('theme', 'dark')
+        }
     }
 
     return (
@@ -36,7 +51,10 @@ export function Header() {
             <nav className={`md:flex-row md:flex md:bg-white  flex-col gap-10 bg-slate-100 p-5 rounded-lg ${isMenuOpen ? 'flex flex-1 self-end w-full' : 'hidden'}`}>
                 <Link className="md:text-base md:font-medium md:border-none flex font-bold text-xl items-center border-b-2 gap-3" to="/"> <HomeIcon className="size-6 text-slate-500"/> Home</Link>
                 <a href="#" className="md:text-base md:font-medium md:border-none flex font-bold text-xl items-center border-b-2 gap-3"> <StarIcon className="size-6 text-slate-500"/> Favoritas</a>
-                <button onClick={toggleTheme} className="md:text-base md:font-medium md:border-none flex font-bold text-xl items-center border-b-2 gap-3"> <MoonIcon className={`size-6 duration-200 ${isThemeOn ? 'text-white' : 'text-slate-500'}`}/>  Dark theme</button>
+                <button onClick={toggleTheme} className="md:text-base md:font-medium md:border-none flex font-bold text-xl items-center border-b-2 gap-3">
+                {isThemeOn ? (<SunIcon className="size-6 text-gray-500"/>) : (<MoonIcon className="size-6 text-gray-500"/>)}
+                {isThemeOn ? 'Light theme' : 'Dark theme'}
+                </button>
             </nav>
 
         </header>

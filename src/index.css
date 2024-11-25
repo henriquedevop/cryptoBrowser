@@ -3,3 +3,43 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/* no seu arquivo Tailwind */
+body {
+    background-color: white;
+}
+
+body.dark {
+    background-color: #0D1420;
+    color: white;
+}
+
+body.dark div {
+    border-color: #34445f;
+}
+
+body.dark tr {
+    background-color: #131d30;
+    color: white;
+}
+
+body.dark tr:hover {
+    background-color: #34445f;
+    color: white;
+}
+
+body.dark footer {
+    background-color: #131d30;
+    color: #ababab;
+    border-color: #34445f;
+}
+
+body.dark header {
+    background-color: #131d30;
+    color: #ababab;
+    border-color: #34445f;
+}
+
+body.dark header nav {
+    background-color: #131d30;
+}
