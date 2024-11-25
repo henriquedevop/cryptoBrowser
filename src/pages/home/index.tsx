@@ -84,7 +84,7 @@ export function Home() {
   }
 
   return (
-    <main className="md:p-16 p-5 w-full">
+    <main className="md:px-16 p-5 w-full">
       <table className="border-separate border-spacing-y-4 w-full table-auto">
         <thead>
           <tr className="text-black border-b-[1.5px]">

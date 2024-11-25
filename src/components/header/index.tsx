@@ -36,7 +36,7 @@ export function Header() {
     }
 
     return (
-        <header className={`h-8 w-full border-b-[1.5px] flex justify-between items-center px-5 py-10  ${isMenuOpen ? 'h-screen flex-col' : ''}`}>
+        <header className={`md:px-16 h-8 w-full border-b-[1.5px] flex justify-between items-center px-5 py-10  ${isMenuOpen ? 'h-screen flex-col' : ''}`}>
                 <div className="md:flex-1">
                     <Link to="/" className="text-xl"><h3><strong>Crypto</strong>Browser</h3></Link>
                 </div>
