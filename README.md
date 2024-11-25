@@ -1,6 +1,7 @@
 # Crypto Browser
 
-![Preview do Projeto - Tela Inicial](src/assets/preview1.jpeg)
+![Preview do Projeto - Tela Inicial](src/assets/preview01.png)
+
 
 ## Sobre o Projeto
 
