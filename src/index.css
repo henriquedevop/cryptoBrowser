@@ -41,5 +41,35 @@ body.dark header {
 }
 
 body.dark header nav {
-    background-color: #131d30;
+    background-color: #162136;
+}
+
+body.dark header a  {
+    color: white;
+}
+
+body.dark header button  {
+    color: white;
+}
+
+body.dark header input  {
+    background-color: #2d3246;
+}
+
+body.dark header ul  {
+    background-color: #2d3246;
+}
+
+body.dark header ul li {
+    border-bottom: none;
+    color: white;
+}
+
+body.dark header ul li:hover {
+    background-color: #34445f;
+}
+
+body.dark header ul:hover {
+    border: red;
+    border-radius: 8px;
 }

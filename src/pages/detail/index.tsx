@@ -50,13 +50,41 @@ export function Detail() {
     }
   }
 
+  function handleAddFav(id: string | undefined, name: string | undefined) {
+
+    if(!id || !name) {
+      alert("informaçoes da moeda invalida")
+      return
+    }
+
+    try {
+      const storedfavs = localStorage.getItem("cryptoFavorites")
+      const favorites = storedfavs ? JSON.parse(storedfavs) : [];
+
+      const isAlreadyFavorite = favorites.some((item: {id: string}) => item.id === id)
+      if(isAlreadyFavorite) {
+        alert("essa moeda ja esta na sua lista")
+        return
+      }
+
+      const newFavorite = { id, name};
+      favorites.push(newFavorite)
+
+      localStorage.setItem("cryptoFavorites", JSON.stringify(favorites));
+      alert(`moeda ${name} adiciona ao favoritos`)
+    } catch(error) {
+      alert(`error ao adicionar moeda`)
+    }
+
+  }
+
     if(loading) {
       return <Loading message={`Carregando informações sobre ${crypto}`}/>
     }
 
     return (
       <>
-      <section className="w-full h-screen p-4 flex flex-col gap-3">
+      <section className="w-full h-screen p-4 flex flex-col gap-3 mt-5">
         <div className="flex items-center gap-2">
           <img
           alt={`crypto logo: ${cryptoInfo?.name}`}
@@ -67,7 +95,7 @@ export function Detail() {
           <span className="text-sm text-gray-500">{cryptoInfo?.symbol}</span>
           <span className="bg-gray-200 mb-1 rounded-md px-3 text-sm text-gray-600">#{cryptoInfo?.rank}</span>
         </div>
-        <div className="flex items-center">
+        <div className="flex items-center mt-3">
         <span className="font-bold text-2xl">{cryptoInfo?.formatedPrice}</span>
         <span 
         className={`px-4 py-2 font-bold
@@ -77,7 +105,7 @@ export function Detail() {
         {Number(cryptoInfo?.changePercent24Hr).toFixed(2)}%
         </span>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 mt-3">
           <div className="flex items-center flex-col border flex-1 rounded-md py-2">
             <span className="text-gray-600">Market cap</span>
             <span className="font-bold">{cryptoInfo?.formatedMarket}</span>
@@ -89,13 +117,16 @@ export function Detail() {
         </div>
         <div className="flex gap-2">
           <div className="flex items-center flex-col border flex-1 rounded-md py-2">
-            <span className="text-gray-600">Max. suplly</span>
-            <span className="font-bold text-blue-400 underline"><a target="_blank" href={cryptoInfo?.explorer}>Acesse os graficos</a></span>
+            <span className="text-gray-600">Explorer</span>
+            <span className="font-bold text-blue-400 underline"><a target="_blank" href={cryptoInfo?.explorer}>Acesse o site oficial</a></span>
           </div>
           <div className="flex items-center flex-col border flex-1 rounded-md py-2">
             <span className="text-gray-600">Total supply</span>
             <span className="font-bold">{cryptoInfo?.formattedSupply}</span>
           </div>
+        </div>
+        <div className="text-center mt-3">
+          <button onClick={() => handleAddFav(cryptoInfo?.id, cryptoInfo?.name)} className="bg-green-500 text-white font-bold p-3 rounded-md">Adicionar as favoritas</button>
         </div>
       </section>
       </>

@@ -12,6 +12,10 @@ export function Header() {
         setIsMenuOpen(!isMenuOpen)
     }
 
+    function closeMenu() {
+        setIsMenuOpen(false)
+    }
+
     useEffect(() => {
         const savedTheme = localStorage.getItem('theme')
         if(savedTheme === 'dark') {
@@ -49,8 +53,8 @@ export function Header() {
                 </div>
 
             <nav className={`md:flex-row md:flex md:bg-white  flex-col gap-10 bg-slate-100 p-5 rounded-lg ${isMenuOpen ? 'flex flex-1 self-end w-full' : 'hidden'}`}>
-                <Link className="md:text-base md:font-medium md:border-none flex font-bold text-xl items-center border-b-2 gap-3" to="/"> <HomeIcon className="size-6 text-slate-500"/> Home</Link>
-                <a href="#" className="md:text-base md:font-medium md:border-none flex font-bold text-xl items-center border-b-2 gap-3"> <StarIcon className="size-6 text-slate-500"/> Favoritas</a>
+                <Link onClick={closeMenu} className="md:text-base md:font-medium md:border-none flex font-bold text-xl items-center border-b-2 gap-3" to="/"> <HomeIcon className="size-6 text-slate-500"/> Home</Link>
+                <Link onClick={closeMenu} to="/favorites" className="md:text-base md:font-medium md:border-none flex font-bold text-xl items-center border-b-2 gap-3"><StarIcon className="size-6 text-slate-500"/> Favoritas</Link>
                 <button onClick={toggleTheme} className="md:text-base md:font-medium md:border-none flex font-bold text-xl items-center border-b-2 gap-3">
                 {isThemeOn ? (<SunIcon className="size-6 text-gray-500"/>) : (<MoonIcon className="size-6 text-gray-500"/>)}
                 {isThemeOn ? 'Light theme' : 'Dark theme'}
