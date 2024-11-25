@@ -107,21 +107,21 @@ export function Detail() {
         </div>
         <div className="flex gap-2 mt-3">
           <div className="flex items-center flex-col border flex-1 rounded-md py-2">
-            <span className="text-gray-600">Market cap</span>
+            <span className="text-zinc-400">Market cap</span>
             <span className="font-bold">{cryptoInfo?.formatedMarket}</span>
           </div>
           <div className="flex items-center flex-col border flex-1 rounded-md py-2">
-            <span className="text-gray-600">Volume 24h</span>
+            <span className="text-zinc-400">Volume 24h</span>
             <span className="font-bold">{cryptoInfo?.formatedValue}</span>
           </div>
         </div>
         <div className="flex gap-2">
           <div className="flex items-center flex-col border flex-1 rounded-md py-2">
-            <span className="text-gray-600">Explorer</span>
+            <span className="text-zinc-400">Explorer</span>
             <span className="font-bold text-blue-400 underline"><a target="_blank" href={cryptoInfo?.explorer}>Acesse o site oficial</a></span>
           </div>
           <div className="flex items-center flex-col border flex-1 rounded-md py-2">
-            <span className="text-gray-600">Total supply</span>
+            <span className="text-zinc-400">Total supply</span>
             <span className="font-bold">{cryptoInfo?.formattedSupply}</span>
           </div>
         </div>

@@ -84,8 +84,8 @@ export function Home() {
   }
 
   return (
-    <main className="p-5 w-full">
-      <table className="border-separate border-spacing-y-4 m-0 p-0 w-full table-auto">
+    <main className="md:p-16 p-5 w-full">
+      <table className="border-separate border-spacing-y-4 w-full table-auto">
         <thead>
           <tr className="text-black border-b-[1.5px]">
             <th scope="col" className="px-4 py-2 text-left">Moeda</th>

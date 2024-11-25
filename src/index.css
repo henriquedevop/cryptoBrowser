@@ -73,3 +73,15 @@ body.dark header ul:hover {
     border: red;
     border-radius: 8px;
 }
+
+body.dark section div li {
+    background-color: #2d3246;
+}
+
+body.dark section div button {
+    background-color: #2d3246;
+}
+
+body.dark section div a {
+    background-color: #2d3246;
+}
