@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { useEffect, useState } from "react";
 import api from "../../services/api";
 import { Loading } from "../../components/loading";
@@ -26,6 +26,7 @@ export function Home() {
   const [cryptos, setCryptos] = useState<CryptoProps[]>([])
   const [offSet, setOffSet] = useState(0)
   const [loading, setLoading] = useState(true)
+  const navigate = useNavigate()
 
   useEffect(() => {
     getData()
@@ -73,6 +74,10 @@ export function Home() {
     }
   }
 
+  function handleTrClick(id: string) {
+    navigate(`/detail/${id}`)
+  }
+
   if(loading) {
     return <Loading message="Carregando home page"/>
   }
@@ -92,7 +97,11 @@ export function Home() {
         
         <tbody id="tbody">
           {cryptos.length > 0 && cryptos.map((item) => (
-          <tr className="bg-gray-50" key={item.id}>
+          <tr 
+          className="bg-gray-50 cursor-pointer hover:bg-gray-100" 
+          key={item.id}
+          ref={(el) => { if(el) el.addEventListener('click', () => handleTrClick(item.id)) }}
+          >
             <td className="px-4 py-4 text-left">
               <img
               alt={`crypto logo: ${item.name}`}
@@ -111,7 +120,8 @@ export function Home() {
             ${Number(item.changePercent24Hr) > 0 ? 'text-green-600' : 'text-red-600'}  
             `} 
             data-label="change24">
-            {Number(item.changePercent24Hr).toFixed(2)}
+            {Number(item.changePercent24Hr) > 0 ? '+' : ''}
+            {Number(item.changePercent24Hr).toFixed(2)}%
             </td> 
           </tr>
           ))}
