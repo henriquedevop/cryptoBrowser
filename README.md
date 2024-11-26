@@ -14,6 +14,7 @@
 - Adição de moedas à watchlist (lista de favoritos).
 - Pesquisa por nome de criptomoeda.
 - Alteração entre os modos claro e escuro.
+- Ver cotação real entre BRL e USD da crypto.
 
 ## Tecnologias Utilizadas
 
