@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router";
 import { useEffect, useState } from "react";
-import api from "../../services/api";
+import api from "../../services/cryptoService";
 import { Loading } from "../../components/loading";
 
 export interface CryptoProps {

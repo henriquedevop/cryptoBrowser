@@ -1,6 +1,6 @@
 import { MagnifyingGlassIcon } from "@heroicons/react/16/solid";
 import { FormEvent, useState, useEffect, useRef } from "react";
-import api from "../../services/api";
+import api from "../../services/cryptoService";
 import { useNavigate } from "react-router";
 
 export function Search() {
